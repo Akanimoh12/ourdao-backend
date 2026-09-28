@@ -72,6 +72,7 @@ Two more checks CI runs that aren't in the list above:
 - **Its tests hit a real database, not a mock.** Follow the pattern in the existing suites.
 - **It doesn't reformat code you didn't change.**
 - **Its description explains why, not just what.**
+- **It updates CHANGELOG.md for user-visible changes.** Any pull request that alters an API response, adds or alters a route, introduces a database migration, or requires an operator action (e.g. reindex) must include an entry under the `[Unreleased]` section of [CHANGELOG.md](./CHANGELOG.md), explicitly marking `[Migration: <file>]` or `[Requires Reindex]` as applicable.
 - **CI is green** before you request review.
 
 ## Backend-specific rules
