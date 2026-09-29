@@ -1,6 +1,6 @@
 {
   "name": "ourdao-backend",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": true,
   "description": "OurDAO backend — off-chain indexer + read API for the Stellar/Soroban lending DAO.",
   "license": "MIT",
@@ -16,11 +16,14 @@
     "start:worker": "node dist/worker.js",
     "migrate": "tsx src/db/migrate.ts",
     "reindex": "tsx src/indexer/reindex.ts",
+    "replay-failed": "tsx src/indexer/replay.ts",
     "bench:events": "tsx scripts/bench-events-storage.ts",
     "typecheck": "tsc --noEmit -p tsconfig.json && tsc --noEmit -p tsconfig.test.json",
     "lint": "eslint .",
     "test": "vitest run",
-    "test:coverage": "vitest run --coverage"
+    "test:coverage": "vitest run --coverage",
+    "test:smoke": "RUN_RPC_SMOKE=true vitest run test/soroban-rpc-smoke.test.ts",
+    "test:mutation": "stryker run"
   },
   "dependencies": {
     "@fastify/cors": "^10.0.1",
